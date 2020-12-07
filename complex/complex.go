@@ -25,9 +25,7 @@ func Abs(z *Complex) float64 {
 
 // Sq Returns the Squared value
 func Sq(z *Complex) float64 {
-	result := (z.Real * z.Real) + (z.Im * z.Im)
-	//result := math.Sqrt(sq)
-	return result
+	return (z.Real * z.Real) + (z.Im * z.Im)
 }
 
 // Conj Returns the conjugate
@@ -37,9 +35,10 @@ func Conj(z *Complex) *Complex {
 }
 
 // AddTo Adds another complex to this complex (similar to "+=" operator)
-func (c *Complex) AddTo(b *Complex) {
+func (c *Complex) AddTo(b *Complex) *Complex {
 	c.Real += b.Real
 	c.Im += b.Im
+	return c
 }
 
 // Add two complex numbers together to make a third complex
@@ -63,13 +62,14 @@ func Sub(a, b *Complex) *Complex {
 }
 
 // MultBy Multiplies this complex by another complex (similar to "*=" operator)
-func (c *Complex) MultBy(b *Complex) {
+func (c *Complex) MultBy(b *Complex) *Complex {
 	re := (c.Real * b.Real) - (c.Im * b.Im)
 	im := (c.Real * b.Im) + (c.Im * b.Real)
 	//c.Real -= re
 	//c.Im -= im
 	c.Real = re
 	c.Im = im
+	return c
 }
 
 // Mult Multiplies one complex by another to make a third complex

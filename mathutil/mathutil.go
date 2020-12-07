@@ -12,7 +12,9 @@ func Clamp(value, min, max int16) int16 {
 	return value
 }
 
-// Normalize is cool
+// Normalize function takes a value between a range of numbers and normalize
+// it between a new range of numbers. For instance, if the range is 10..20 with
+// a value of 15, and the new range is 0..100, the new value will be 50.
 func Normalize(value, minIn, maxIn, minOut, maxOut float64) float64 {
 	return (minOut + (((value - minIn) * (maxOut - minOut)) / (maxIn - minIn)))
 }
